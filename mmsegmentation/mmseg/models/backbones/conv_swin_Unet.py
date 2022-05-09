@@ -538,7 +538,7 @@ class BasicConvBlock(nn.Module):
 
 
 @BACKBONES.register_module()
-class swin_unet(BaseModule):
+class swinUnet(BaseModule):
     """Swin Transformer backbone.
 
     This backbone is the implementation of `Swin Transformer:
@@ -644,7 +644,7 @@ class swin_unet(BaseModule):
         else:
             raise TypeError('pretrained must be a str or None')
 
-        super(swin_unet, self).__init__(init_cfg=init_cfg)
+        super(swinUnet, self).__init__(init_cfg=init_cfg)
 
         num_layers = len(depths)
         self.out_indices = out_indices
@@ -800,7 +800,7 @@ class swin_unet(BaseModule):
 
     def train(self, mode=True):
         """Convert the model into training mode while keep layers freezed."""
-        super(swin_unet, self).train(mode)
+        super(swinUnet, self).train(mode)
         self._freeze_stages()
 
     def _freeze_stages(self):
